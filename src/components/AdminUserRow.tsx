@@ -23,17 +23,21 @@ const AdminUserRow = ({user}: [user: UserWithNoPassword]) => {
   const token = localStorage.getItem('token');
 
   return (
-    <div>
-      <div key={user.user_id}>
-        <p>{user.username}</p>
-        <button
-          className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
-          onClick={() => handleDelete(user.user_id, token ?? '')}
-        >
-          Delete
-        </button>
-      </div>
-    </div>
+    <>
+      <tr key={user.user_id} className="">
+        <td className="whitespace-nowrap px-6 py-4">{user.username}</td>
+        <td className="whitespace-nowrap px-6 py-4">{user.email}</td>
+        <td className="whitespace-nowrap px-6 py-4">{user.created_at}</td>
+        <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+          <button
+            className="rounded-md bg-gradient-to-r from-rose-600 to-rose-900 px-4 py-2 text-white"
+            onClick={() => handleDelete(user.user_id, token ?? '')}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </>
   );
 };
 

@@ -28,27 +28,19 @@ const Admin = () => {
       <h1 className="mb-6 text-center text-5xl font-bold text-white underline">
         Users
       </h1>
-      <table className="w-full border-collapse">
-        <thead className="text-white">
-          <tr>
-            <th className="px-4 py-2">ID</th>
-            <th className="px-4 py-2">Username</th>
-            <th className="px-4 py-2">Password</th>
-            <th className="px-4 py-2">Email</th>
-            <th className="px-4 py-2">User level</th>
-            <th className="px-4 py-2">Created</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usersArray.map((user: User) => (
-            <AdminUserRow
-              key={user.user_id}
-              user={user}
-              onDelete={handleDelete}
-            />
-          ))}
-        </tbody>
-      </table>
+      <div className="flex justify-center">
+        <table className="w-80%">
+          <tbody>
+            {usersArray.map((user: User) => (
+              <AdminUserRow
+                key={user.user_id}
+                user={user}
+                onDelete={handleDelete}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
       {/* AdminMediaRow */}
       <h1 className="mb-6 text-center text-5xl font-bold text-white underline">
         Media
