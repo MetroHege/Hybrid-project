@@ -10,6 +10,7 @@ import {UserProvider} from './contexts/UserContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Admin from './views/Admin';
 import {UpdateProvider} from './contexts/UpdateContext';
+import Profiletest from './views/ProfileTest';
 
 const App = () => {
   return (
@@ -24,6 +25,14 @@ const App = () => {
                 element={
                   <ProtectedRoute>
                     <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profiletest"
+                element={
+                  <ProtectedRoute>
+                    <Profiletest />
                   </ProtectedRoute>
                 }
               />
