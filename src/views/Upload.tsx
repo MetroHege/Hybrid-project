@@ -1,8 +1,7 @@
 import {useState} from 'react';
 import {useForm} from '../hooks/FormHooks';
-// import {useFile, useMedia} from '../hooks/apiHooks';
+import {useFile, useMedia} from '../hooks/apiHooks';
 import {useNavigate} from 'react-router-dom';
-import {useFile, useMedia} from '../hooks/GraphQLHooks';
 
 const Upload = () => {
   const [file, setFile] = useState<File | null>(null);

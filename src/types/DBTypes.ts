@@ -4,8 +4,7 @@ type UserLevel = {
 };
 
 type User = {
-  // user_id: number; // REST API
-  user_id: string; // GraphQL
+  user_id: number;
   username: string;
   password: string;
   email: string;
@@ -13,62 +12,70 @@ type User = {
   created_at: Date | string;
 };
 
+// for REST API
 type MediaItem = {
-  // media_id: number; // REST API
-  // user_id: number; // REST API
-  media_id: string; // GraphQL
-  user_id: string; // GraphQL
-  filename: string;
-  thumbnail: string;
-  filesize: number;
-  media_type: string;
-  title: string;
-  description: string | null;
-  created_at: Date | string;
-};
+   media_id: number;
+   user_id: number;
+   filename: string;
+   thumbnail: string;
+   filesize: number;
+   media_type: string;
+   title: string;
+   description: string | null;
+   created_at: Date | string;
+ };
+
+// FOR GRAPHQL
+// type MediaItem = {
+//   media_id: number;
+//   user_id: number;
+//   filename: string;
+//   thumbnail: string;
+//   filesize: number;
+//   media_type: string;
+//   title: string;
+//   description: string | null;
+//   created_at: Date | string;
+//   owner: User;
+//   tags?: Tag[];
+//   likes?: Like[];
+//   ratings?: Rating[];
+//   likes_count: number;
+//   average_rating?: number;
+//   comments_count: number;
+// };
 
 type Comment = {
-  // comment_id: number; // REST API
-  // media_id: number; // REST API
-  comment_id: string; // GraphQL
-  media_id: string; // GraphQL
+  comment_id: number;
+  media_id: number;
   user_id: number;
   comment_text: string;
   created_at: Date;
 };
 
 type Like = {
-  // like_id: number; // REST API
-  // media_id: number; // REST API
-  // user_id: number; // REST API
-  like_id: string; // GraphQL
-  media_id: string; // GraphQL
-  user_id: string; // GraphQL
+  like_id: number;
+  media_id: number;
+  user_id: number;
   created_at: Date;
 };
 
 type Rating = {
-  // rating_id: number; // REST API
-  // media_id: number; // REST API
-  // user_id: number; // REST API
-  rating_id: string; // GraphQL
-  media_id: string; // GraphQL
-  user_id: string; // GraphQL
+  rating_id: number;
+  media_id: number;
+  user_id: number;
   rating_value: number;
   created_at: Date;
 };
 
 type Tag = {
-  // tag_id: number; // REST API
-  tag_id: string; // GraphQL
+  tag_id: number;
   tag_name: string;
 };
 
 type MediaItemTag = {
-  // media_id: number; // REST API
-  // tag_id: number; // REST API
-  media_id: string; // GraphQL
-  tag_id: string; // GraphQL
+  media_id: number;
+  tag_id: number;
 };
 
 type TagResult = MediaItemTag & Tag;
@@ -102,19 +109,7 @@ type UserWithNoPassword = Omit<UserWithLevel, 'password'>;
 
 type TokenContent = Pick<User, 'user_id'> & Pick<UserLevel, 'level_name'>;
 
-// for REST API
-// type MediaItemWithOwner = MediaItem & Pick<User, 'username'>;
-
-// FOR GRAPHQL
-type MediaItemWithOwner = MediaItem & {
-  owner: User;
-  tags?: Tag[];
-  likes?: Like[];
-  ratings?: Rating[];
-  likes_count: number;
-  average_rating?: number;
-  comments_count: number;
-};
+type MediaItemWithOwner = MediaItem & Pick<User, 'username'>;
 
 // for upload server
 type FileInfo = {

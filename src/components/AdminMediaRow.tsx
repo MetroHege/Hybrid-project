@@ -3,7 +3,7 @@ import {MediaItemWithOwner} from '../types/DBTypes';
 import {useUpdateContext, useUserContext} from '../hooks/ContextHooks';
 import {useMedia} from '../hooks/apiHooks';
 
-const MediaRow = (props: {item: MediaItemWithOwner}) => {
+const AdminMediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
   console.log('user', user);
@@ -33,8 +33,8 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       <td>{item.title}</td>
       <td>{item.description}</td>
       <td>{new Date(item.created_at).toLocaleString('fi-FI')}</td>
-      <td className="hidden">{item.filesize}</td>
-      <td className="hidden">{item.media_type}</td>
+      <td>{item.filesize}</td>
+      <td>{item.media_type}</td>
       <td>{item.username}</td>
       <td className="p-4">
         <div className="mb-2">
@@ -46,29 +46,25 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
             View
           </Link>
         </div>
-        {user && user.user_id === item.user_id && (
-          <>
-            <div className="mb-2">
-              <button
-                className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
-                onClick={() => console.log('modify', item)}
-              >
-                Modify
-              </button>
-            </div>
-            <div>
-              <button
-                className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
-                onClick={deleteHandler}
-              >
-                Delete
-              </button>
-            </div>
-          </>
-        )}
+        <div className="mb-2">
+          <button
+            className="block rounded-md bg-gradient-to-r from-blue-600 to-blue-900 p-2"
+            onClick={() => console.log('modify', item)}
+          >
+            Modify
+          </button>
+        </div>
+        <div>
+          <button
+            className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
+            onClick={deleteHandler}
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </tr>
   );
 };
 
-export default MediaRow;
+export default AdminMediaRow;

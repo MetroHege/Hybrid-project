@@ -1,7 +1,6 @@
 import {useEffect, useReducer} from 'react';
 import {Like, MediaItemWithOwner} from '../types/DBTypes';
-import {useLike} from '../hooks/GraphQLHooks';
-// import {useLike} from '../hooks/apiHooks';
+import {useLike} from '../hooks/apiHooks';
 
 type LikeState = {
   count: number;

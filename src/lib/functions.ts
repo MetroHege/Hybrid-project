@@ -18,34 +18,4 @@ const fetchData = async <T>(
   return json;
 };
 
-const makeQuery = async <TF, TV>(
-  query: string,
-  variables?: TV,
-  token?: string,
-): Promise<TF> => {
-  const headers: {'Content-Type': string; Authorization?: string} = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-  };
-
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
-  const body: {query: string; variables?: TV} = {
-    query,
-  };
-
-  if (variables) {
-    body.variables = variables;
-  }
-
-  const options: RequestInit = {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  };
-  return await fetchData<TF>(import.meta.env.VITE_GRAPHQL_API, options);
-};
-
-export {fetchData, makeQuery};
+export {fetchData};
