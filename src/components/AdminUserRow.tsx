@@ -1,32 +1,39 @@
-type User = {
-  user_id: number;
-  username: string;
-  password: string;
-  email: string;
-  user_level_id: number;
-  created_at: Date | string;
-};
+import {useEffect, useState} from 'react';
+import {useUser} from '../hooks/apiHooks';
+import {User, UserWithNoPassword} from '../types/DBTypes';
 
-const AdminUserRow = (props: {user: User}) => {
-  const {user} = props;
+const AdminUserRow = ({user}: [user: UserWithNoPassword]) => {
+  const {getAllUsers, deleteUser} = useUser();
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const fetchedUsers = await getAllUsers();
+      setUsers(fetchedUsers);
+    };
+
+    fetchUsers();
+  }, []);
+
+  const handleDelete = async (user_id: number, token: string) => {
+    await deleteUser(user_id, token);
+    setUsers(users.filter((user) => user.user_id !== user_id));
+  };
+
+  const token = localStorage.getItem('token');
+
   return (
-    <tr className="user-row shadow-md">
-      <td>{user.user_id}</td>
-      <td>{user.username}</td>
-      <td>{user.email}</td>
-      <td>{String(user.created_at)}</td>
-      <td className="p-4">
-        <div className="mb-2"></div>
-        <div>
-          <button
-            className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
-            onClick={() => console.log('delete', user)}
-          >
-            Delete
-          </button>
-        </div>
-      </td>
-    </tr>
+    <div>
+      <div key={user.user_id}>
+        <p>{user.username}</p>
+        <button
+          className="block rounded-md bg-gradient-to-r from-rose-600 to-rose-900 p-2"
+          onClick={() => handleDelete(user.user_id, token ?? '')}
+        >
+          Delete
+        </button>
+      </div>
+    </div>
   );
 };
 

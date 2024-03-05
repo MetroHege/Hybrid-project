@@ -57,7 +57,7 @@ const Profiletest = () => {
         </thead>
         <tbody>
           {mediaArray
-            .filter((item) => item.user_id === user?.user_id) // Filter items based on user_id
+            .filter((item) => item.user_id === user?.user_id)
             .map((item) => (
               <MediaRow key={item.media_id} item={item} />
             ))}
