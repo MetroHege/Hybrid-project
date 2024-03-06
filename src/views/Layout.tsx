@@ -40,6 +40,20 @@ const Layout = () => {
                 Home
               </Link>
             </li>
+            <li
+              className={
+                location.pathname === '/contact'
+                  ? 'rounded bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold'
+                  : ''
+              }
+            >
+              <Link
+                className="block p-2 text-center text-slate-200 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 hover:bg-clip-text hover:font-bold hover:text-transparent"
+                to="/contact"
+              >
+                Contact
+              </Link>
+            </li>
             {user ? (
               <>
                 <li
