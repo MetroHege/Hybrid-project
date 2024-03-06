@@ -12,9 +12,14 @@ import Admin from './views/Admin';
 import {UpdateProvider} from './contexts/UpdateContext';
 import Profiletest from './views/ProfileTest';
 import {ThemeProvider} from './contexts/ThemeContext';
-import Fetch from './views/Contact';
+import {useRandomPath} from './contexts/RandomPathContext';
 
 const App = () => {
+  const AdminRoute: React.FC = () => {
+    const randomPath = useRandomPath();
+    return <Route path={`/${randomPath}`} element={<Admin.Admin />} />;
+  };
+
   return (
     <ThemeProvider>
       <Router basename={import.meta.env.BASE_URL}>
@@ -51,7 +56,6 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/admin" element={<Admin.Admin />} />
-                <Route path="/contact" element={<Fetch />} />
               </Route>
             </Routes>
           </UpdateProvider>

@@ -21,7 +21,13 @@ const UserProvider = ({children}: {children: React.ReactNode}) => {
       if (loginResult) {
         localStorage.setItem('token', loginResult.token);
         setUser(loginResult.user);
-        navigate('/');
+        let origin = '';
+        if (loginResult.user.level_name === 'Admin') {
+          origin = '/admin';
+        } else {
+          origin = '/';
+        }
+        navigate(origin);
       }
     } catch (e) {
       alert((e as Error).message);
@@ -45,8 +51,13 @@ const UserProvider = ({children}: {children: React.ReactNode}) => {
       if (token) {
         const userResponse = await getUserByToken(token);
         setUser(userResponse.user);
-        // when page is refreshed, the user is redirected to origin (see ProtectedRoute.tsx)
-        const origin = location.state.from.pathname || '/';
+        console.log('level', userResponse.user.level_name);
+        let origin = '';
+        if (userResponse.user.level_name === 'Admin') {
+          origin = '/admin';
+        } else {
+          origin = location.state.from.pathname || '/';
+        }
         navigate(origin);
       }
     } catch (e) {
