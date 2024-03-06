@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function Fetch() {
+export default function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 

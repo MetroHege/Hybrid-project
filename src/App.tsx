@@ -14,6 +14,7 @@ import Profiletest from './views/ProfileTest';
 import {ThemeProvider} from './contexts/ThemeContext';
 import {useRandomPath} from './contexts/RandomPathContext';
 import Fetch from './views/Contact';
+import Contact from './views/Contact';
 
 const App = () => {
   const AdminRoute: React.FC = () => {
@@ -57,7 +58,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/admin" element={<Admin.Admin />} />
-                <Route path="/contact" element={<Fetch />} />
+                <Route path="/contact" element={<Contact />} />
               </Route>
             </Routes>
           </UpdateProvider>
