@@ -12,46 +12,54 @@ import Admin from './views/Admin';
 import {UpdateProvider} from './contexts/UpdateContext';
 import Profiletest from './views/ProfileTest';
 import {ThemeProvider} from './contexts/ThemeContext';
+import {RandomPathProvider, useRandomPath} from './contexts/RandomPathContext';
 
 const App = () => {
+  const AdminRoute: React.FC = () => {
+    const randomPath = useRandomPath();
+    return <Route path={`/${randomPath}`} element={<Admin.Admin />} />;
+  };
+
   return (
     <ThemeProvider>
       <Router basename={import.meta.env.BASE_URL}>
         <UserProvider>
           <UpdateProvider>
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route
-                  path="/profile"
-                  element={
-                    <ProtectedRoute>
-                      <Profile />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/profiletest"
-                  element={
-                    <ProtectedRoute>
-                      <Profiletest />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/upload"
-                  element={
-                    <ProtectedRoute>
-                      <Upload />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="/single" element={<Single />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/logout" element={<Logout />} />
-                <Route path="/admin" element={<Admin.Admin />} />
-              </Route>
-            </Routes>
+            <RandomPathProvider>
+              <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route
+                    path="/profile"
+                    element={
+                      <ProtectedRoute>
+                        <Profile />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/profiletest"
+                    element={
+                      <ProtectedRoute>
+                        <Profiletest />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/upload"
+                    element={
+                      <ProtectedRoute>
+                        <Upload />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="/single" element={<Single />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/logout" element={<Logout />} />
+                  <Route path="/admin" element={<Admin.Admin />} />
+                </Route>
+              </Routes>
+            </RandomPathProvider>
           </UpdateProvider>
         </UserProvider>
       </Router>

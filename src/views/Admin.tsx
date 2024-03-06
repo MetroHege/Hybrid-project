@@ -26,7 +26,7 @@ const Admin = () => {
   return (
     <>
       <h1 className="mb-6 text-center text-5xl font-bold text-white underline">
-        Users
+        Application users
       </h1>
       <div className="flex justify-center">
         <table className="w-80%">
@@ -43,7 +43,7 @@ const Admin = () => {
       </div>
       {/* AdminMediaRow */}
       <h1 className="mb-6 text-center text-5xl font-bold text-white underline">
-        Media
+        Media items in the application
       </h1>
       <table className="w-full border-collapse">
         <thead className="text-white">
