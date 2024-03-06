@@ -13,7 +13,6 @@ import {UpdateProvider} from './contexts/UpdateContext';
 import Profiletest from './views/ProfileTest';
 import {ThemeProvider} from './contexts/ThemeContext';
 import {useRandomPath} from './contexts/RandomPathContext';
-import Fetch from './views/Contact';
 import Contact from './views/Contact';
 
 const App = () => {
