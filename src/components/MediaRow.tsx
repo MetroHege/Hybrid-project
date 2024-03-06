@@ -26,9 +26,9 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
   };
 
   return (
-    <tr className="media-row shadow-md">
+    <tr className="media-row mx-auto w-4/5 shadow-md">
       <td>
-        <img src={item.thumbnail} alt={item.title} />
+        <img src={item.thumbnail} alt={item.title} className="max-w-xs" />
       </td>
       <td>{item.title}</td>
       <td>{item.description}</td>

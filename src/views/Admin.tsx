@@ -25,7 +25,7 @@ const Admin = () => {
 
   return (
     <>
-      <h1 className="mb-6 text-center text-5xl font-bold text-white underline">
+      <h1 className="mb-6 text-center text-5xl font-bold underline">
         Application users
       </h1>
       <div className="flex justify-center">
@@ -42,11 +42,11 @@ const Admin = () => {
         </table>
       </div>
       {/* AdminMediaRow */}
-      <h1 className="mb-6 text-center text-5xl font-bold text-white underline">
+      <h1 className="mb-6 text-center text-5xl font-bold  underline">
         Media items in the application
       </h1>
       <table className="w-full border-collapse">
-        <thead className="text-white">
+        <thead className="">
           <tr>
             <th className="px-4 py-2">Thumbnail</th>
             <th className="px-4 py-2">Title</th>

@@ -44,45 +44,51 @@ const Upload = () => {
     <>
       <div className="rounded p-8 shadow-lg">
         <h3 className="mb-8 text-center text-3xl font-bold">Upload</h3>
-        <form onSubmit={handleSubmit} className="flex flex-col text-center">
-          <div className="mx-auto mb-4 w-4/5">
-            <label htmlFor="title" className="block text-justify">
+        <form onSubmit={handleSubmit} className="flex flex-col items-center">
+          <div className="flex w-2/5 flex-col">
+            <label className="text-left font-bold" htmlFor="title">
               Title
             </label>
             <input
-              className="w-full rounded border bg-slate-800 p-2 text-slate-200"
+              className="m-3 w-full rounded border border-slate-500 p-2 text-slate-950"
               name="title"
               type="text"
               id="title"
               onChange={handleInputChange}
             />
           </div>
-          <div className="mx-auto mb-4 w-4/5">
-            <label htmlFor="description" className="block text-justify">
+          <div className="flex w-2/5 flex-col">
+            <label className="text-left font-bold" htmlFor="description">
               Description
             </label>
             <textarea
-              className="w-full rounded border bg-slate-800 p-2 text-slate-200"
+              className="m-3 w-full rounded border border-slate-500 p-2 text-slate-950"
               name="description"
               rows={5}
               id="description"
               onChange={handleInputChange}
             ></textarea>
           </div>
-          <div className="mx-auto mb-4 w-4/5">
-            <label htmlFor="file" className="block text-justify">
+          <div className="flex w-2/5 flex-col">
+            <label className="text-left font-bold" htmlFor="file">
               File
             </label>
-            <input
-              className="w-full rounded border border-slate-200 bg-slate-800 p-2 text-slate-200"
-              name="file"
-              type="file"
-              id="file"
-              accept="image/*, video/*"
-              onChange={handleFileChange}
-            />
+            <label
+              className="m-3 w-full cursor-pointer rounded border border-slate-500 p-2 "
+              style={{display: 'block'}}
+            >
+              <span id="file-name">Choose a file...</span>
+              <input
+                name="file"
+                type="file"
+                id="file"
+                accept="image/*, video/*"
+                onChange={handleFileChange}
+                style={{display: 'none'}}
+              />
+            </label>
           </div>
-          <div className="mx-auto mb-4 w-4/5">
+          <div className="w-4/5">
             <img
               src={
                 file
@@ -90,13 +96,13 @@ const Upload = () => {
                   : 'https://via.placeholder.com/200?text=Choose+image'
               }
               alt="preview"
-              width="200"
+              width="300"
               className="mx-auto"
             />
           </div>
-          <div className="mx-auto mb-4 flex w-1/3 items-start">
+          <div className="w-3/5">
             <button
-              className="w-full rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black hover:font-bold"
+              className="m-3 mx-auto flex w-1/3 justify-center rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black hover:font-bold"
               type="submit"
               disabled={file && inputs.title.length > 3 ? false : true}
             >

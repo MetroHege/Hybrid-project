@@ -19,13 +19,13 @@ const LoginForm = () => {
   return (
     <div className="rounded p-8 shadow-lg">
       <h3 className="mb-8 text-center text-3xl font-bold">LOGIN</h3>
-      <form onSubmit={handleSubmit} className="flex flex-col text-center">
-        <div className="flex w-4/5">
-          <label className="w-1/3 p-6 text-end" htmlFor="UserWithLevelname">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center">
+        <div className="flex w-2/5 flex-col">
+          <label className="text-left font-bold" htmlFor="UserWithLevelname">
             Username
           </label>
           <input
-            className="m-3 w-2/3 rounded border border-slate-500 p-2 text-slate-950"
+            className="m-3 w-full rounded border border-slate-500 p-2 text-slate-950"
             name="username"
             type="text"
             id="UserWithLevelname"
@@ -33,12 +33,12 @@ const LoginForm = () => {
             autoComplete="username"
           />
         </div>
-        <div className="flex w-4/5">
-          <label className="w-1/3 p-6 text-end" htmlFor="loginpassword">
+        <div className="flex w-2/5 flex-col">
+          <label className="text-left font-bold" htmlFor="loginpassword">
             Password
           </label>
           <input
-            className="m-3 w-2/3 rounded border border-slate-500 p-2 text-slate-950"
+            className="m-3 w-full rounded border border-slate-500 p-2 text-slate-950"
             name="password"
             type="password"
             id="loginpassword"
@@ -46,9 +46,9 @@ const LoginForm = () => {
             autoComplete="current-password"
           />
         </div>
-        <div className="flex w-4/5 justify-center">
+        <div className="w-3/5">
           <button
-            className="m-3 w-1/3 rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black hover:font-bold"
+            className="m-3 mx-auto flex w-1/3 justify-center rounded bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 text-black hover:font-bold"
             type="submit"
           >
             Login

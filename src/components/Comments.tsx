@@ -57,11 +57,9 @@ const Comments = ({item}: {item: MediaItemWithOwner}) => {
           <ul>
             {comments.map((comment) => (
               <li key={comment.comment_id}>
-                <div className="rounded-md border border-slate-200 bg-slate-800 p-3 text-slate-100">
-                  <span className="font-bold text-slate-200">
-                    {comment.username}
-                  </span>
-                  <span className="text-sm font-bold text-slate-200">
+                <div className="rounded-md border border-slate-500 bg-slate-100 p-2 text-slate-950">
+                  <span className="font-bold ">{comment.username}</span>
+                  <span className="text-sm font-bold ">
                     {' ('}
                     {new Date(comment.created_at!).toLocaleDateString('fi-FI')}
                     {') '}:
@@ -78,7 +76,7 @@ const Comments = ({item}: {item: MediaItemWithOwner}) => {
           <form onSubmit={handleSubmit} ref={formRef}>
             <div className="flex w-4/5">
               <input
-                className="mt-3 w-2/3 rounded border border-slate-200 bg-slate-800 p-2 text-slate-950"
+                className="mt-3 w-2/3 rounded border border-slate-500 p-2 text-slate-950"
                 name="comment_text"
                 type="text"
                 id="comment"

@@ -11,6 +11,17 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #232629;
 
+  /* --background-dark: #232629;
+  --text-dark: #f0f0f0;
+  --background-light: #e3e3e3;
+  --text-light: #111111;
+
+  --breakpoint-small: '320px';
+  --breakpoint-medium: '640px';
+  --breakpoint-large: '960px';
+  --breakpoint-xlarge: '1280px';
+  --breakpoint-xxlarge: '1920px'; */
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

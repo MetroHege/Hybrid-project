@@ -1,8 +1,10 @@
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import {useUserContext} from '../hooks/ContextHooks';
+import {useTheme} from '../contexts/ThemeContext';
 
 const Layout = () => {
   const {user, handleAutoLogin} = useUserContext();
+  const {theme} = useTheme();
 
   if (!user) {
     handleAutoLogin();
@@ -119,7 +121,13 @@ const Layout = () => {
         </nav>
       </header>
 
-      <main>
+      <main
+        className={
+          theme === 'light'
+            ? 'bg-slate-200 text-gray-900' // light theme classes
+            : 'dark:bg-slate-800 dark:text-white' // dark theme classes
+        }
+      >
         <Outlet />
       </main>
       <footer className="footer">
