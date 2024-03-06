@@ -6,7 +6,7 @@ import {useMedia} from '../hooks/apiHooks';
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
-  console.log('user', user);
+  // console.log('user', user);
 
   const {deleteMedia} = useMedia();
   const {update, setUpdate} = useUpdateContext();
