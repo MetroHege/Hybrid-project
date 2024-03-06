@@ -1,7 +1,6 @@
 import {useForm} from '../hooks/FormHooks';
 import {Credentials} from '../types/LocalTypes';
 import {useUserContext} from '../hooks/ContextHooks';
-import {Navigate} from 'react-router';
 
 const LoginForm = () => {
   const {handleLogin} = useUserContext();
@@ -10,15 +9,6 @@ const LoginForm = () => {
 
   const doLogin = async () => {
     handleLogin(inputs as Credentials);
-  };
-
-  // TODO: create a function that checks if the user_level is 2, then redirect to /admin
-
-  const doAdmin = () => {
-    handleLogin(inputs);
-    if (inputs.username === 'AdminUser') {
-      return <Navigate to="/admin" />;
-    }
   };
 
   const {handleSubmit, handleInputChange, inputs} = useForm(
