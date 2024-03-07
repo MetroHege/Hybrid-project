@@ -2,14 +2,14 @@ import {useEffect, useState} from 'react';
 import AdminMediaRow from '../components/AdminMediaRow';
 import AdminUserRow from '../components/AdminUserRow';
 import {useMedia, useUser} from '../hooks/apiHooks';
-import {User} from '../types/DBTypes';
+import {User, UserWithNoPassword} from '../types/DBTypes';
 
 const Admin = () => {
   const {mediaArray} = useMedia();
   const {getAllUsers, deleteUser} = useUser();
   const [usersArray, setUsersArray] = useState<User[]>([]);
   const {getUserByToken} = useUser();
-  const [role, setRole] = useState(null);
+  const [user, setUser] = useState<UserWithNoPassword | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,18 +25,21 @@ const Admin = () => {
     setUsersArray(usersArray.filter((user) => user.user_id !== user_id));
   };
 
-  useEffect(() => {
-    const levelName = localStorage.getItem('level_name');
-    console.log('level_name:', levelName);
-
-    if (levelName) {
-      setRole(levelName);
+  const getUser = async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const userResponse = await getUserByToken(token);
+      setUser(userResponse.user);
     }
+  };
+
+  useEffect(() => {
+    getUser();
   }, []);
 
   return (
     <>
-      {role === 'Admin' ? (
+      {user?.level_name === 'Admin' ? (
         <>
           <h1 className="mb-6 text-center text-5xl font-bold underline">
             Application users
