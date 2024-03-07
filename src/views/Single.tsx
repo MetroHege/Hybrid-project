@@ -43,10 +43,7 @@ const Single = () => {
           <label className="hidden text-left font-bold" htmlFor="comments">
             Comments
           </label>
-          <Comments
-            className="m-3 w-full rounded border border-slate-500 bg-gray-200 p-2 text-slate-950"
-            item={item}
-          />
+          <Comments item={item} />
         </div>
         <p className="hidden">{item.filesize}</p>
         <p className="hidden">{item.media_type}</p>

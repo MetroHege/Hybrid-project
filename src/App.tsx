@@ -10,17 +10,10 @@ import {UserProvider} from './contexts/UserContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Admin from './views/Admin';
 import {UpdateProvider} from './contexts/UpdateContext';
-import Profiletest from './views/ProfileTest';
 import {ThemeProvider} from './contexts/ThemeContext';
-import {useRandomPath} from './contexts/RandomPathContext';
 import Contact from './views/Contact';
 
 const App = () => {
-  const AdminRoute: React.FC = () => {
-    const randomPath = useRandomPath();
-    return <Route path={`/${randomPath}`} element={<Admin.Admin />} />;
-  };
-
   return (
     <ThemeProvider>
       <Router basename={import.meta.env.BASE_URL}>
@@ -34,14 +27,6 @@ const App = () => {
                   element={
                     <ProtectedRoute>
                       <Profile />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/profiletest"
-                  element={
-                    <ProtectedRoute>
-                      <Profiletest />
                     </ProtectedRoute>
                   }
                 />

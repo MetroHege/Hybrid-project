@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {useForm} from '../hooks/FormHooks';
 import {useUser} from '../hooks/apiHooks';
-import {useNavigate} from 'react-router-dom';
 
 const RegisterForm = () => {
   const {postUser} = useUser();

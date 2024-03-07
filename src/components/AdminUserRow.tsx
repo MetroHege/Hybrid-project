@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {useUser} from '../hooks/apiHooks';
 import {User, UserWithNoPassword} from '../types/DBTypes';
 
-const AdminUserRow = ({user}: [user: UserWithNoPassword]) => {
+const AdminUserRow = ({user}: {user: UserWithNoPassword}) => {
   const {getAllUsers, deleteUser} = useUser();
   const [users, setUsers] = useState<User[]>([]);
 
@@ -27,7 +27,9 @@ const AdminUserRow = ({user}: [user: UserWithNoPassword]) => {
       <tr key={user.user_id} className="">
         <td className="whitespace-nowrap px-6 py-4">{user.username}</td>
         <td className="whitespace-nowrap px-6 py-4">{user.email}</td>
-        <td className="whitespace-nowrap px-6 py-4">{user.created_at}</td>
+        <td className="whitespace-nowrap px-6 py-4">
+          {String(user.created_at)}
+        </td>
         <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
           <button
             className="rounded-md bg-gradient-to-r from-rose-600 to-rose-900 px-4 py-2 text-white"
