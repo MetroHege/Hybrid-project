@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import {useUser} from '../hooks/apiHooks';
 import {User, UserWithNoPassword} from '../types/DBTypes';
 
+// This component is used to display the user rows in the admin view
+
 const AdminUserRow = ({user}: {user: UserWithNoPassword}) => {
   const {getAllUsers, deleteUser} = useUser();
   const [users, setUsers] = useState<User[]>([]);
@@ -15,12 +17,16 @@ const AdminUserRow = ({user}: {user: UserWithNoPassword}) => {
     fetchUsers();
   }, []);
 
+  // handleDelete is used to delete the user
+
   const handleDelete = async (user_id: number, token: string) => {
     await deleteUser(user_id, token);
     setUsers(users.filter((user) => user.user_id !== user_id));
   };
 
   const token = localStorage.getItem('token');
+
+  // This is the row that will be displayed in the admin view
 
   return (
     <>

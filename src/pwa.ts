@@ -3,6 +3,7 @@
     try {
       const worker = await navigator.serviceWorker.register('./sw.js');
       console.log('Service Worker Registered');
+      console.log(worker);
     } catch (e) {
       if (e instanceof DOMException) {
         console.log('SW registration failed');

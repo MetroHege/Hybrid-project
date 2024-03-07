@@ -3,6 +3,8 @@ import {MediaItemWithOwner} from '../types/DBTypes';
 import {useUpdateContext, useUserContext} from '../hooks/ContextHooks';
 import {useMedia} from '../hooks/apiHooks';
 
+// This component is used to display the media items in the admin view
+
 const AdminMediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
@@ -10,6 +12,8 @@ const AdminMediaRow = (props: {item: MediaItemWithOwner}) => {
 
   const {deleteMedia} = useMedia();
   const {update, setUpdate} = useUpdateContext();
+
+  // deleteHandler is used to delete the media item
 
   const deleteHandler = () => {
     try {
@@ -24,6 +28,8 @@ const AdminMediaRow = (props: {item: MediaItemWithOwner}) => {
       console.error('deleteHandler failed', error);
     }
   };
+
+  // This is the row that will be displayed in the admin view
 
   return (
     <tr className="media-row shadow-md">

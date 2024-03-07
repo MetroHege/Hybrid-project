@@ -7,11 +7,14 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
+  // This function will be called when the form is submitted
+
   function submit(e: React.FormEvent<HTMLFormElement>) {
     // This will prevent page refresh
     e.preventDefault();
 
-    // replace this with your own unique endpoint URL
+    // This function will send the form data to the server
+
     fetch('https://formcarry.com/s/VkJ3vX-P9Dq', {
       method: 'POST',
       headers: {
@@ -35,6 +38,8 @@ export default function Contact() {
     return <p>{error}</p>;
   }
 
+  // This is the message that will be displayed after the form is submitted and the data is sent to the gmail account where it can be read
+
   if (submitted) {
     return (
       <div className="mx-auto flex h-[90vh] w-4/5 flex-col justify-center">
@@ -51,6 +56,8 @@ export default function Contact() {
       </div>
     );
   }
+
+  // This is the form that will be displayed when the page is loaded
 
   return (
     <div className="flex h-[90vh] flex-col justify-center rounded p-8 shadow-lg">

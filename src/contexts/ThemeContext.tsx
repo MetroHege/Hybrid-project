@@ -6,6 +6,8 @@ type ThemeContextProps = {
   toggleTheme: () => void;
 };
 
+// This is the context that will be used to pass the theme to the components
+
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({
@@ -15,6 +17,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({
     const storedTheme = window.localStorage.getItem('theme');
     return (storedTheme as Theme) || 'dark';
   });
+
+  // toggleTheme is used to change the theme from light to dark and vice versa
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -29,6 +33,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({
     </ThemeContext.Provider>
   );
 };
+
+// useTheme is a custom hook that will be used to get the theme from the context
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);

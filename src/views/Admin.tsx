@@ -20,10 +20,14 @@ const Admin = () => {
     fetchUsers();
   }, []);
 
-  const handleDelete = async (user_id: number) => {
-    await deleteUser(user_id);
+  // handleDelete is used to delete a user from the database
+
+  const handleDelete = async (user_id: number, token: string) => {
+    await deleteUser(user_id, token);
     setUsersArray(usersArray.filter((user) => user.user_id !== user_id));
   };
+
+  // getUser is used to get the user from the token in local storage
 
   const getUser = async () => {
     const token = localStorage.getItem('token');
