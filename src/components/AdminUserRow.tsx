@@ -1,13 +1,19 @@
 import {useEffect, useState} from 'react';
 import {useUser} from '../hooks/apiHooks';
-import {User, UserWithNoPassword} from '../types/DBTypes';
+import {UserWithNoPassword} from '../types/DBTypes';
 
 // This component is used to display the user rows in the admin view
 
-const AdminUserRow = ({user}: {user: UserWithNoPassword}) => {
+const AdminUserRow = ({
+  user,
+  onDelete,
+}: {
+  user: UserWithNoPassword;
+  onDelete: (user_id: number, token: string) => Promise<void>;
+}) => {
   const {getAllUsers, deleteUser} = useUser();
-  const [users, setUsers] = useState<User[]>([]);
-
+  const [users, setUsers] = useState<UserWithNoPassword[]>([]);
+  console.log(onDelete);
   useEffect(() => {
     const fetchUsers = async () => {
       const fetchedUsers = await getAllUsers();

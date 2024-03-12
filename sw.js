@@ -1,6 +1,6 @@
 'use strict';
 
-const files = ['./', './index.html', './main.css', './form.css', './build'];
+const files = ['./', './index.html', './main.css', './form.css', './dist'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

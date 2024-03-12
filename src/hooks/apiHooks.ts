@@ -5,6 +5,7 @@ import {
   MediaItem,
   MediaItemWithOwner,
   User,
+  UserWithNoPassword,
 } from '../types/DBTypes';
 import {fetchData} from '../lib/functions';
 import {Credentials} from '../types/LocalTypes';
@@ -151,7 +152,9 @@ const useUser = () => {
   };
 
   const getAllUsers = async () => {
-    return await fetchData<User[]>(import.meta.env.VITE_AUTH_API + '/users');
+    return await fetchData<UserWithNoPassword[]>(
+      import.meta.env.VITE_AUTH_API + '/users',
+    );
   };
 
   const deleteUser = async (user_id: number, token: string) => {

@@ -2,12 +2,12 @@ import {useEffect, useState} from 'react';
 import AdminMediaRow from '../components/AdminMediaRow';
 import AdminUserRow from '../components/AdminUserRow';
 import {useMedia, useUser} from '../hooks/apiHooks';
-import {User, UserWithNoPassword} from '../types/DBTypes';
+import {UserWithNoPassword} from '../types/DBTypes';
 
 const Admin = () => {
   const {mediaArray} = useMedia();
   const {getAllUsers, deleteUser} = useUser();
-  const [usersArray, setUsersArray] = useState<User[]>([]);
+  const [usersArray, setUsersArray] = useState<UserWithNoPassword[]>([]);
   const {getUserByToken} = useUser();
   const [user, setUser] = useState<UserWithNoPassword | null>(null);
 
@@ -51,7 +51,7 @@ const Admin = () => {
           <div className="flex justify-center">
             <table className="w-80%">
               <tbody>
-                {usersArray.map((user: User) => (
+                {usersArray.map((user) => (
                   <AdminUserRow
                     key={user.user_id}
                     user={user}
