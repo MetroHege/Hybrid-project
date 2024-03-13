@@ -23,9 +23,16 @@ Tietokantana käytetty esimerkkipalvelimella olevaa tietokantaa.
 ## Toiminnallisuudet
 
 - Kirjautuminen ja rekisteröityminen
-- Profiilin hallinta (muokkaus, poisto)
-- Tietojen hakeminen ja näyttäminen
-- jne.
+- Kuvien ja videoiden lataaminen
+- Kuvien ja videoiden katselu
+- Kuvien ja videoiden poistaminen
+- Kuvien ja videoiden tykkääminen
+- Kuvien ja videoiden kommentointi
+- dark/light mode
+- Admin-näkymä, jossa voi poistaa käyttäjiä ja kuvia
+- Yhteydenottolomake
+- PWA
+- Analytiikkaa käyttäjä- ja kuvamääristä
 
 ## Tiedossa olevat bugit/ongelmat
 
@@ -64,6 +71,10 @@ Tietokantana käytetty esimerkkipalvelimella olevaa tietokantaa.
 ## Contact
 
 ![Yhteydenottolomake](screenshots/Contact.png)
+
+## Contact - Submitted
+
+![Yhteydenottolomake - Lähetetty](screenshots/Submitted.png)
 
 ## Admin
 
