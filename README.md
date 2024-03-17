@@ -2,12 +2,11 @@
 
 ## Julkaistu sovellus
 
-Vercel: (https://hybrid-project-mediawave.vercel.app/)
+Vercel: https://hybrid-project-mediawave.vercel.app/
 
-Azure: [Azure](http://20.123.94.38/)
+Azure: http://20.123.94.38/
 
-Backup
-Oma Metropolia: [Oma Metropolia](https://users.metropolia.fi/~henriole/hybridisovellukset/Project-new/)
+Backup: https://users.metropolia.fi/~henriole/hybridisovellukset/Project-new/
 
 ## Back-end-sovellus/API
 
