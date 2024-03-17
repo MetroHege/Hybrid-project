@@ -2,19 +2,24 @@
 
 ## Julkaistu sovellus
 
-Oma Metropolia: [Oma Metropolia](https://users.metropolia.fi/~henriole/hybridisovellukset/Project-new/)
-
-Vercel: [Vercel](https://hybrid-project-mediawave.vercel.app/)
+Vercel: (https://hybrid-project-mediawave.vercel.app/)
 
 Azure: [Azure](http://20.123.94.38/)
 
+Backup
+Oma Metropolia: [Oma Metropolia](https://users.metropolia.fi/~henriole/hybridisovellukset/Project-new/)
+
 ## Back-end-sovellus/API
 
-Linkki käytössä olevaan back-end-sovellukseen/APIin: [Back-endin nimi](https://www.example.com/api)
+Back-end-sovellus/API:
+
+- [Upload](https://10.120.32.94/upload/api/v1)
+- [Media-api](https://10.120.32.94/media-api/api/v1)
+- [Auth-api](https://10.120.32.94/auth-api/api/v1)
 
 ## API-dokumentaatio
 
-Linkki API-dokumentaatioon (apidoc): [API-dokumentaatio](https://www.example.com/api-docs)
+API-dokumentaatio (apidoc): [API-dokumentaatio](https://10.120.32.94/media-api/)
 
 ## Tietokannan kuvaus
 
@@ -37,16 +42,16 @@ Tietokantana käytetty esimerkkipalvelimella olevaa tietokantaa.
 ## Tiedossa olevat bugit/ongelmat
 
 - Sovellus toimii tällä hetkellä vain Metropolian verkossa.
-- Chromella lähtökohtaisesti ongelmia toiminnan kanssa, ellei mene ensin esimerkkipalvelimelle (https://10.120.32.94/auth-api/api/v1) ja kirjoita siellä "thisisunsafe"
-- PWA ei toimi esimerkkipalvelimella olevien sertifikaattipuutteiden vuoksi.
+- Chromella lähtökohtaisesti ongelmia toiminnan kanssa, ellei mene ensin esimerkkipalvelimelle (https://10.120.32.94/auth-api/api/v1) ja kirjoita siellä "thisisunsafe".
+- PWA ei toimi esimerkkipalvelimella olevien sertifikaattipuutteiden vuoksi(?).
 
-## Referenssit ja käytetyt teknologiat
+## Käytetyt teknologiat
 
 - React
 - TypeScript
 - JavaScript
 
-## Kuvakaappaukset
+# Kuvakaappaukset
 
 ## Home
 
@@ -72,7 +77,7 @@ Tietokantana käytetty esimerkkipalvelimella olevaa tietokantaa.
 
 ![Yhteydenottolomake](screenshots/Contact.png)
 
-## Contact - Submitted
+## Contact - Submitted (vastaanotettu lomake)
 
 ![Yhteydenottolomake - Lähetetty](screenshots/Submitted.png)
 
